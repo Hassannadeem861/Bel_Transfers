@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>BelTransfer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Toast Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/ionicons.min.css">
+
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" width="200" height="50" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="Terms&Conditions.html" class="nav-link">Terms & Conditions</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <!-- Logout button -->
+          <li class="nav-item logoutBtn" id="logoutBtn" style="display: none;">
+            <a href="#" class="nav-link logoutLink" id="logoutLink">Logout</a>
+          </li>
+          <!-- Register and Login links -->
+          <li class="nav-item registerLink" id="registerLink" style="display: block;">
+            <a href="./Register.html" class="nav-link">Register</a>
+          </li>
+          <li class="nav-item loginLink" id="loginLink" style="display: block;">
+            <a href="./Login.html" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item ">
+            <div class="form-group mt-2">
+              <select name="source" class="p-2 select2 select2-hidden-accessible"
+                style="width:100%; font-size: smaller; height: 40px;" required>
+                <option value="Select Language">Select Language</option>
+                <option value="English">English</option>
+                <option value="French">French</option>
+                <option value="German">German</option>
+                <option value="Dutch">Dutch</option>
+              </select>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+
+    // // Check if the user is logged in
+    // const userDataString = localStorage.getItem('userData');
+    // console.log("userDataString :", userDataString);
+
+
+    // if (userDataString) {
+    //   const userData = JSON.parse(userDataString);
+    //   console.log("userData: ", userData);
+    //   if (userData.isLoggedIn && userData.userType === 'admin') {
+    //     // Admin is logged in, show logout button
+    //     document.getElementById('logoutBtn').style.display = 'block';
+    //     document.getElementById('registerLink').style.display = 'none';
+    //     document.getElementById('loginLink').style.display = 'none';
+    //   } else {
+    //     // Regular user is logged in, show logout button
+    //     document.getElementById('logoutBtn').style.display = 'block';
+    //     document.getElementById('registerLink').style.display = 'none';
+    //     document.getElementById('loginLink').style.display = 'none';
+    //   }
+    // } else {
+    //   // User is not logged in, show register and login links
+    //   document.getElementById('logoutBtn').style.display = 'none';
+    //   document.getElementById('registerLink').style.display = 'block';
+    //   document.getElementById('loginLink').style.display = 'block';
+    // }
+
+    // // Logout button functionality
+    // const logoutBtn = document.getElementById('logoutBtn');
+    // if (logoutBtn) {
+    //   logoutBtn.addEventListener('click', () => {
+    //     localStorage.removeItem('userData'); // User data ko localStorage se clear karo
+    //     window.location.href = './Login.html'; // Logout ke baad login page pe redirect karo
+    //   });
+    // } else {
+    //   console.error('Logout button nahi mila.');
+    // }
+
+
+
+
+
+
+    // Check if the user is logged in
+    const userDataString = localStorage.getItem('userData');
+    console.log("userDataString :", userDataString);
+
+    if (userDataString) {
+      // User is logged in, show logout button
+      document.getElementById('logoutBtn').style.display = 'block';
+      document.getElementById('registerLink').style.display = 'none';
+      document.getElementById('loginLink').style.display = 'none';
+    } else {
+      // User is not logged in, show register and login links
+      document.getElementById('logoutBtn').style.display = 'none';
+      document.getElementById('registerLink').style.display = 'block';
+      document.getElementById('loginLink').style.display = 'block';
+    }
+
+    // Logout button functionality
+    const logoutBtn = document.getElementById('logoutLink');
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('userData'); // Clear user data from localStorage
+      window.location.href = './Login.html'; // Redirect to login page after logout
+    });
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- END nav -->
+
+  <div class="hero-wrap ftco-degree-bg" style="background-image: url('21985.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+        <div class="col-lg-8 ftco-animate">
+          <div class="text w-100 text-center mb-md-5 pb-md-5">
+            <h5 class="text-light">NEED A RIDE?</h5>
+            <h1 class="mb-4">FEW CLICKS AWAY</h1>
+            <p style="font-size: 18px;">Whether you enjoy city breaks or extended holidays in the sun, you can always
+              improve your travel experiences by staying with us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <section class="ftco-section ftco-no-pt bg-light"> -->
+  <div class="container">
+    <!-- <div class="row no-gutters"> -->
+    <div class="	featured-top">
+      <!-- <div class="row no-gutters"> -->
+      <form action="#" class="request-form ftco-animate mb-5" style="background-color: black;" id="bookingForm">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 col-md-12 col-10">
+              <h3 class="text-light text-center pb-3"><b>Book Your Car Online!</b></h3>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-4 col-10">
+
+
+              <!-- Book Your Car Online! -->
+              <div class="form-group mb-3">
+                <input class="form-control txt-field mb-3" type="text" name="name" placeholder="Your name" />
+                <input class="form-control txt-field mb-3" type="email" name="email" placeholder="Email address" />
+                <input class="form-control txt-field mb-3" type="tel" name="phoneNumber" placeholder="Phone number"
+                  title="Please enter only numbers" required />
+                <div class="form-group mt-3">
+                  <select name="vehicle" class="p-2 select2 select2-hidden-accessible"
+                    style="width:100%; font-size: smaller; height: 40px;" required>
+                    <option value="Vehicle">Vehicle</option>
+                    <option value="1">Sedan</option>
+                    <option value="2">Business</option>
+                    <option value="3">MiniVan</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-10">
+              <input class="form-control txt-field mb-3" type="text" name="sourceText"
+                placeholder="Pickup Street Address" />
+
+              <div class="form-group mb-3">
+                <select name="fromLocation" class="p-2 select2 select2-hidden-accessible"
+                  style="width:100%; font-size: smaller; height: 40px;" required>
+                  <option value="From Location">From Location</option>
+                  <option value="Paris Charles de Gaulle Airport">Paris Charles de Gaulle Airport</option>
+                  <option value="Paris City">Paris City</option>
+                  <option value="Paris City">Amsterdam Airport Schiphol (Holland)</option>
+                  <option value="Paris City">Amsterdam City</option>
+                  <option value="Paris City">Maastricht City</option>
+                  <option value="Paris City">Brussels Airport (Zaventem)</option>
+                  <option value="Paris City">Charleroi Airport </option>
+                  <option value="Paris City">Ostende Airport </option>
+                  <option value="Paris City">Antwerp Airport </option>
+                  <option value="Paris City">Liege Airport </option>
+                  <option value="Paris City">Brussels South / Midi Train Station</option>
+                  <option value="Viroinval">Viroinval</option>
+                  <option value="Anderlecht">Anderlecht</option>
+                  <option value="Auderghem/Oudergem">Auderghem/Oudergem</option>
+                  <option value="Berchem-Sainte-Agathe/Sint-Agatha-Berchem">Berchem-Sainte-Agathe/Sint-Agatha-Berchem
+                  </option>
+                  <option value="City of Brussels">City of Brussels</option>
+                  <option value="Etterbeek">Etterbeek</option>
+                  <option value="Evere">Evere</option>
+                  <option value="Forest/Vorst">Forest/Vorst</option>
+                  <option value="Ganshoren">Ganshoren</option>
+                  <option value="Ixelles/Elsene">Ixelles/Elsene</option>
+                  <option value="Jette">Jette</option>
+                  <option value="Koekelberg">Koekelberg</option>
+                  <option value="Molenbeek-Saint-Jean/Sint-Jans-Molenbeek">Molenbeek-Saint-Jean/Sint-Jans-Molenbeek
+                  </option>
+                  <option value="Saint-Gilles/Sint-Gillis">Saint-Gilles/Sint-Gillis</option>
+                  <option value="Saint-Josse-ten-Noode/Sint-Joost-ten-Node">Saint-Josse-ten-Noode/Sint-Joost-ten-Node
+                  </option>
+                  <option value="Schaerbeek/Schaarbeek">Schaerbeek/Schaarbeek</option>
+                  <option value="Uccle">Uccle</option>
+                  <option value="Watermael-Boitsfort/Watermaal-Bosvoorde">Watermael-Boitsfort/Watermaal-Bosvoorde
+                  </option>
+                  <option value="Woluwe-Saint-Lambert/Sint-Lambrechts-Woluwe">
+                    Woluwe-Saint-Lambert/Sint-Lambrechts-Woluwe</option>
+                  <option value="Woluwe-Saint-Pierre/Sint-Pieters-Woluwe">Woluwe-Saint-Pierre/Sint-Pieters-Woluwe
+                  </option>
+                  <option value="Aalst">Aalst</option>
+                  <option value="Aalter">Aalter</option>
+                  <option value="Aarschot">Aarschot</option>
+                  <option value="Aartselaar">Aartselaar</option>
+                  <option value="Affligem">Affligem</option>
+                  <option value="Alken">Alken</option>
+                  <option value="Alveringem">Alveringem</option>
+                  <option value="Antwerp">Antwerp</option>
+                  <option value="Anzegem">Anzegem</option>
+                  <option value="Ardooie">Ardooie</option>
+                  <option value="Arendonk">Arendonk</option>
+                  <option value="As">As</option>
+                  <option value="Asse">Asse</option>
+                  <option value="Assenede">Assenede</option>
+                  <option value="Avelgem">Avelgem</option>
+                  <option value="Baarle-Hertog">Baarle-Hertog</option>
+                  <option value="Balen">Balen</option>
+                  <option value="Beernem">Beernem</option>
+                  <option value="Beerse">Beerse</option>
+                  <option value="Beersel">Beersel</option>
+                  <option value="Begijnendijk">Begijnendijk</option>
+                  <option value="Bekkevoort">Bekkevoort</option>
+                  <option value="Beringen">Beringen</option>
+                  <option value="Berlaar">Berlaar</option>
+                  <option value="Berlare">Berlare</option>
+                  <option value="Bertem">Bertem</option>
+                  <option value="Bever">Bever</option>
+                  <option value="Beveren">Beveren</option>
+                  <option value="Bierbeek">Bierbeek</option>
+                  <option value="Bilzen">Bilzen</option>
+                  <option value="Blankenberge">Blankenberge</option>
+                  <option value="Bocholt">Bocholt</option>
+                  <option value="Boechout">Boechout</option>
+                  <option value="Bonheiden">Bonheiden</option>
+                  <option value="Boom">Boom</option>
+                  <option value="Boortmeerbeek">Boortmeerbeek</option>
+                  <option value="Borgloon">Borgloon</option>
+                  <option value="Bornem">Bornem</option>
+                  <option value="Borsbeek">Borsbeek</option>
+                  <option value="Boutersem">Boutersem</option>
+                  <option value="Brakel">Brakel</option>
+                  <option value="Brasschaat">Brasschaat</option>
+                  <option value="Brecht">Brecht</option>
+                  <option value="Bredene">Bredene</option>
+                  <option value="Bree">Bree</option>
+                  <option value="Bruges">Bruges</option>
+                  <option value="Buggenhout">Buggenhout</option>
+                  <option value="Damme">Damme</option>
+                  <option value="Deerlijk">Deerlijk</option>
+                  <option value="De Haan">De Haan</option>
+                  <option value="Deinze">Deinze</option>
+                  <option value="Denderleeuw">Denderleeuw</option>
+                  <option value="Dendermonde">Dendermonde</option>
+                  <option value="Dentergem">Dentergem</option>
+                  <option value="De Panne">De Panne</option>
+                  <option value="De Pinte">De Pinte</option>
+                  <option value="Dessel">Dessel</option>
+                  <option value="Destelbergen">Destelbergen</option>
+                  <option value="Diepenbeek">Diepenbeek</option>
+                  <option value="Diest">Diest</option>
+                  <option value="Diksmuide">Diksmuide</option>
+                  <option value="Dilbeek">Dilbeek</option>
+                  <option value="Dilsen-Stokkem">Dilsen-Stokkem</option>
+                  <option value="Drogenbos">Drogenbos</option>
+                  <option value="Duffel">Duffel</option>
+                  <option value="Edegem">Edegem</option>
+                  <option value="Eeklo">Eeklo</option>
+                  <option value="Erpe-Mere">Erpe-Mere</option>
+                  <option value="Essen">Essen</option>
+                  <option value="Evergem">Evergem</option>
+                  <option value="Galmaarden">Galmaarden</option>
+                  <option value="Gavere">Gavere</option>
+                  <option value="Geel">Geel</option>
+                  <option value="Geetbets">Geetbets</option>
+                  <option value="Genk">Genk</option>
+                  <option value="Geraardsbergen">Geraardsbergen</option>
+                  <option value="Ghent">Ghent</option>
+                  <option value="Gingelom">Gingelom</option>
+                  <option value="Gistel">Gistel</option>
+                  <option value="Glabbeek">Glabbeek</option>
+                  <option value="Gooik">Gooik</option>
+                  <option value="Grimbergen">Grimbergen</option>
+                  <option value="Grobbendonk">Grobbendonk</option>
+                  <option value="Haacht">Haacht</option>
+                  <option value="Haaltert">Haaltert</option>
+                  <option value="Halen">Halen</option>
+                  <option value="Halle">Halle</option>
+                  <option value="Ham">Ham</option>
+                  <option value="Hamme">Hamme</option>
+                  <option value="Hamont-Achel">Hamont-Achel</option>
+                  <option value="Harelbeke">Harelbeke</option>
+                  <option value="Hasselt">Hasselt</option>
+                  <option value="Hechtel-Eksel">Hechtel-Eksel</option>
+                  <option value="Heers">Heers</option>
+                  <option value="Heist-op-den-Berg">Heist-op-den-Berg</option>
+                  <option value="Hemiksem">Hemiksem</option>
+                  <option value="Herent">Herent</option>
+                  <option value="Herentals">Herentals</option>
+                  <option value="Herenthout">Herenthout</option>
+                  <option value="Herk-de-Stad">Herk-de-Stad</option>
+                  <option value="Herne">Herne</option>
+                  <option value="Herselt">Herselt</option>
+                  <option value="Herstappe">Herstappe</option>
+                  <option value="Herzele">Herzele</option>
+                  <option value="Heusden-Zolder">Heusden-Zolder</option>
+                  <option value="Heuvelland">Heuvelland</option>
+                  <option value="Hoegaarden">Hoegaarden</option>
+                  <option value="Hoeilaart">Hoeilaart</option>
+                  <option value="Hoeselt">Hoeselt</option>
+                  <option value="Holsbeek">Holsbeek</option>
+                  <option value="Hooglede">Hooglede</option>
+                  <option value="Hoogstraten">Hoogstraten</option>
+                  <option value="Horebeke">Horebeke</option>
+                  <option value="Houthalen-Helchteren">Houthalen-Helchteren</option>
+                  <option value="Houthulst">Houthulst</option>
+                  <option value="Hove">Hove</option>
+                  <option value="Huldenberg">Huldenberg</option>
+                  <option value="Hulshout">Hulshout</option>
+                  <option value="Ichtegem">Ichtegem</option>
+                  <option value="Ingelmunster">Ingelmunster</option>
+                  <option value="Izegem">Izegem</option>
+                  <option value="Jabbeke">Jabbeke</option>
+                  <option value="Kalmthout">Kalmthout</option>
+                  <option value="Kampenhout">Kampenhout</option>
+                  <option value="Kapellen">Kapellen</option>
+                  <option value="Kapelle-op-den-Bos">Kapelle-op-den-Bos</option>
+                  <option value="Kaprijke">Kaprijke</option>
+                  <option value="Kasterlee">Kasterlee</option>
+                  <option value="Keerbergen">Keerbergen</option>
+                  <option value="Kinrooi">Kinrooi</option>
+                  <option value="Kluisbergen">Kluisbergen</option>
+                  <option value="Knokke-Heist">Knokke-Heist</option>
+                  <option value="Koekelare">Koekelare</option>
+                  <option value="Koksijde">Koksijde</option>
+                  <option value="Kontich">Kontich</option>
+                  <option value="Kortemark">Kortemark</option>
+                  <option value="Kortenaken">Kortenaken</option>
+                  <option value="Kortenberg">Kortenberg</option>
+                  <option value="Kortessem">Kortessem</option>
+                  <option value="Kortrijk">Kortrijk</option>
+                  <option value="Kraainem">Kraainem</option>
+                  <option value="Kruibeke">Kruibeke</option>
+                  <option value="Kruisem">Kruisem</option>
+                  <option value="Kuurne">Kuurne</option>
+                  <option value="Laakdal">Laakdal</option>
+                  <option value="Laarne">Laarne</option>
+                  <option value="Lanaken">Lanaken</option>
+                  <option value="Landen">Landen</option>
+                  <option value="Langemark-Poelkapelle">Langemark-Poelkapelle</option>
+                  <option value="Lebbeke">Lebbeke</option>
+                  <option value="Lede">Lede</option>
+                  <option value="Ledegem">Ledegem</option>
+                  <option value="Lendelede">Lendelede</option>
+                  <option value="Lennik">Lennik</option>
+                  <option value="Leopoldsburg">Leopoldsburg</option>
+                  <option value="Leuven">Leuven</option>
+                  <option value="Lichtervelde">Lichtervelde</option>
+                  <option value="Liedekerke">Liedekerke</option>
+                  <option value="Lier">Lier</option>
+                  <option value="Lierde">Lierde</option>
+                  <option value="Lievegem">Lievegem</option>
+                  <option value="Lille">Lille</option>
+                  <option value="Linkebeek">Linkebeek</option>
+                  <option value="Lint">Lint</option>
+                  <option value="Linter">Linter</option>
+                  <option value="Lochristi">Lochristi</option>
+                  <option value="Lokeren">Lokeren</option>
+                  <option value="Lommel">Lommel</option>
+                  <option value="Londerzeel">Londerzeel</option>
+                  <option value="Lo-Reninge">Lo-Reninge</option>
+                  <option value="Lubbeek">Lubbeek</option>
+                  <option value="Lummen">Lummen</option>
+                  <option value="Maarkedal">Maarkedal</option>
+                  <option value="Maaseik">Maaseik</option>
+                  <option value="Maasmechelen">Maasmechelen</option>
+                  <option value="Machelen">Machelen</option>
+                  <option value="Maldegem">Maldegem</option>
+                  <option value="Malle">Malle</option>
+                  <option value="Mechelen">Mechelen</option>
+                  <option value="Meerhout">Meerhout</option>
+                  <option value="Meise">Meise</option>
+                  <option value="Melle">Melle</option>
+                  <option value="Menen">Menen</option>
+                  <option value="Merchtem">Merchtem</option>
+                  <option value="Merelbeke">Merelbeke</option>
+                  <option value="Merksplas">Merksplas</option>
+                  <option value="Mesen">Mesen</option>
+                  <option value="Meulebeke">Meulebeke</option>
+                  <option value="Middelkerke">Middelkerke</option>
+                  <option value="Moerbeke">Moerbeke</option>
+                  <option value="Mol">Mol</option>
+                  <option value="Moorslede">Moorslede</option>
+                  <option value="Mortsel">Mortsel</option>
+                  <option value="Nazareth">Nazareth</option>
+                  <option value="Niel">Niel</option>
+                  <option value="Nieuwerkerken">Nieuwerkerken</option>
+                  <option value="Nieuwpoort">Nieuwpoort</option>
+                  <option value="Ninove">Ninove</option>
+                  <option value="Olen">Olen</option>
+                  <option value="Oosterzele">Oosterzele</option>
+                  <option value="Oostkamp">Oostkamp</option>
+                  <option value="Oostrozebeke">Oostrozebeke</option>
+                  <option value="Opwijk">Opwijk</option>
+                  <option value="Ostend">Ostend</option>
+                  <option value="Oudenaarde">Oudenaarde</option>
+                  <option value="Oudenburg">Oudenburg</option>
+                  <option value="Oudsbergen">Oudsbergen</option>
+                  <option value="Oud-Heverlee">Oud-Heverlee</option>
+                  <option value="Oud-Turnhout">Oud-Turnhout</option>
+                  <option value="Overijse">Overijse</option>
+                  <option value="Peer">Peer</option>
+                  <option value="Pelt">Pelt</option>
+                  <option value="Pepingen">Pepingen</option>
+                  <option value="Pittem">Pittem</option>
+                  <option value="Poperinge">Poperinge</option>
+                  <option value="Putte">Putte</option>
+                  <option value="Puurs-Sint-Amands">Puurs-Sint-Amands</option>
+                  <option value="Ranst">Ranst</option>
+                  <option value="Ravels">Ravels</option>
+                  <option value="Retie">Retie</option>
+                  <option value="Riemst">Riemst</option>
+                  <option value="Rijkevorsel">Rijkevorsel</option>
+                  <option value="Roeselare">Roeselare</option>
+                  <option value="Ronse">Ronse</option>
+                  <option value="Roosdaal">Roosdaal</option>
+                  <option value="Rotterdam">Rotterdam</option>
+                  <option value="Rotselaar">Rotselaar</option>
+                  <option value="Ruiselede">Ruiselede</option>
+                  <option value="Rumst">Rumst</option>
+                  <option value="Schelle">Schelle</option>
+                  <option value="Scherpenheuvel-Zichem">Scherpenheuvel-Zichem</option>
+                  <option value="Schilde">Schilde</option>
+                  <option value="Schoten">Schoten</option>
+                  <option value="Sint-Agatha-Berchem">Sint-Agatha-Berchem</option>
+                  <option value="Sint-Gillis-Waas">Sint-Gillis-Waas</option>
+                  <option value="Sint-Katelijne-Waver">Sint-Katelijne-Waver</option>
+                  <option value="Sint-Lievens-Houtem">Sint-Lievens-Houtem</option>
+                  <option value="Sint-Martens-Latem">Sint-Martens-Latem</option>
+                  <option value="Sint-Niklaas">Sint-Niklaas</option>
+                  <option value="Sint-Pieters-Leeuw">Sint-Pieters-Leeuw</option>
+                  <option value="Sint-Truiden">Sint-Truiden</option>
+                  <option value="Spiere-Helkijn">Spiere-Helkijn</option>
+                  <option value="Stabroek">Stabroek</option>
+                  <option value="Staden">Staden</option>
+                  <option value="Steenokkerzeel">Steenokkerzeel</option>
+                  <option value="Stekene">Stekene</option>
+                  <option value="Temse">Temse</option>
+                  <option value="Ternat">Ternat</option>
+                  <option value="Tervuren">Tervuren</option>
+                  <option value="Tessenderlo">Tessenderlo</option>
+                  <option value="Tielt">Tielt</option>
+                  <option value="Tielt-Winge">Tielt-Winge</option>
+                  <option value="Tienen">Tienen</option>
+                  <option value="Tongeren">Tongeren</option>
+                  <option value="Torhout">Torhout</option>
+                  <option value="Tremelo">Tremelo</option>
+                  <option value="Turnhout">Turnhout</option>
+                  <option value="Uitgeest">Uitgeest</option>
+                  <option value="Veurne">Veurne</option>
+                  <option value="Vilvoorde">Vilvoorde</option>
+                  <option value="Vleteren">Vleteren</option>
+                  <option value="Voeren">Voeren</option>
+                  <option value="Vorselaar">Vorselaar</option>
+                  <option value="Vosselaar">Vosselaar</option>
+                  <option value="Waarschoot">Waarschoot</option>
+                  <option value="Waasmunster">Waasmunster</option>
+                  <option value="Wachtebeke">Wachtebeke</option>
+                  <option value="Wakken">Wakken</option>
+                  <option value="Walcourt">Walcourt</option>
+                  <option value="Waregem">Waregem</option>
+                  <option value="Wellen">Wellen</option>
+                  <option value="Wemmel">Wemmel</option>
+                  <option value="Wervik">Wervik</option>
+                  <option value="Westerlo">Westerlo</option>
+                  <option value="Wetteren">Wetteren</option>
+                  <option value="Wevelgem">Wevelgem</option>
+                  <option value="Wezembeek-Oppem">Wezembeek-Oppem</option>
+                  <option value="Wichelen">Wichelen</option>
+                  <option value="Wielsbeke">Wielsbeke</option>
+                  <option value="Wijnegem">Wijnegem</option>
+                  <option value="Willebroek">Willebroek</option>
+                  <option value="Wingene">Wingene</option>
+                  <option value="Wommelgem">Wommelgem</option>
+                  <option value="Wommersom">Wommersom</option>
+                  <option value="Wuustwezel">Wuustwezel</option>
+                  <option value="Zandhoven">Zandhoven</option>
+                  <option value="Zaventem">Zaventem</option>
+                  <option value="Zedelgem">Zedelgem</option>
+                  <option value="Zele">Zele</option>
+                  <option value="Zelzate">Zelzate</option>
+                  <option value="Zemst">Zemst</option>
+                  <option value="Zingem">Zingem</option>
+                  <option value="Zoersel">Zoersel</option>
+                  <option value="Zomergem">Zomergem</option>
+                  <option value="Zonhoven">Zonhoven</option>
+                  <option value="Zonnebeke">Zonnebeke</option>
+                  <option value="Zottegem">Zottegem</option>
+                  <option value="Zoutleeuw">Zoutleeuw</option>
+                  <option value="Zuienkerke">Zuienkerke</option>
+                  <option value="Zulte">Zulte</option>
+                  <option value="Zutendaal">Zutendaal</option>
+                  <option value="Zwalm">Zwalm</option>
+                  <option value="Zwijndrecht">Zwijndrecht</option>
+                  <option value="Zwijndrecht">Zwijndrecht</option>
+                  <option value="Woluwe-Saint-Pierre/Sint-Pieters-Woluwe">Woluwe-Saint-Pierre/Sint-Pieters-Woluwe
+                  </option>
+                  <option value="Aiseau-Presles">Aiseau-Presles</option>
+                  <option value="Amay">Amay</option>
+                  <option value="Amel">Amel</option>
+                  <option value="Amblève">Amblève</option>
+                  <option value="Andenne">Andenne</option>
+                  <option value="Anderlues">Anderlues</option>
+                  <option value="Anhée">Anhée</option>
+                  <option value="Ans">Ans</option>
+                  <option value="Anthisnes">Anthisnes</option>
+                  <option value="Antoing">Antoing</option>
+                  <option value="Arlon">Arlon</option>
+                  <option value="Assesse">Assesse</option>
+                  <option value="Ath">Ath</option>
+                  <option value="Attert">Attert</option>
+                  <option value="Aubange">Aubange</option>
+                  <option value="Aubel">Aubel</option>
+                  <option value="Awans">Awans</option>
+                  <option value="Aywaille">Aywaille</option>
+                  <option value="Baelen">Baelen</option>
+                  <option value="Bassenge">Bassenge</option>
+                  <option value="Bastogne">Bastogne</option>
+                  <option value="Beaumont">Beaumont</option>
+                  <option value="Beauraing">Beauraing</option>
+                  <option value="Beauvechain">Beauvechain</option>
+                  <option value="Belœil">Belœil</option>
+                  <option value="Berloz">Berloz</option>
+                  <option value="Bernissart">Bernissart</option>
+                  <option value="Bertogne">Bertogne</option>
+                  <option value="Bertrix">Bertrix</option>
+                  <option value="Beyne-Heusay">Beyne-Heusay</option>
+                  <option value="Bièvre">Bièvre</option>
+                  <option value="Binche">Binche</option>
+                  <option value="Blegny">Blegny</option>
+                  <option value="Bouillon">Bouillon</option>
+                  <option value="Boussu">Boussu</option>
+                  <option value="Braine-l'Alleud">Braine-l'Alleud</option>
+                  <option value="Braine-le-Château">Braine-le-Château</option>
+                  <option value="Braine-le-Comte">Braine-le-Comte</option>
+                  <option value="Braives">Braives</option>
+                  <option value="Brugelette">Brugelette</option>
+                  <option value="Brunehaut">Brunehaut</option>
+                  <option value="Büllingen">Büllingen</option>
+                  <option value="Bullange">Bullange</option>
+                  <option value="Burdinne">Burdinne</option>
+                  <option value="Burg-Reuland">Burg-Reuland</option>
+                  <option value="Bütgenbach">Bütgenbach</option>
+                  <option value="Butgenbach">Butgenbach</option>
+                  <option value="Celles">Celles</option>
+                  <option value="Cerfontaine">Cerfontaine</option>
+                  <option value="Chapelle-lez-Herlaimont">Chapelle-lez-Herlaimont</option>
+                  <option value="Charleroi">Charleroi</option>
+                  <option value="Chastre">Chastre</option>
+                  <option value="Châtelet">Châtelet</option>
+                  <option value="Chaudfontaine">Chaudfontaine</option>
+                  <option value="Chaumont-Gistoux">Chaumont-Gistoux</option>
+                  <option value="Chièvres">Chièvres</option>
+                  <option value="Chimay">Chimay</option>
+                  <option value="Chiny">Chiny</option>
+                  <option value="Ciney">Ciney</option>
+                  <option value="Clavier">Clavier</option>
+                  <option value="Colfontaine">Colfontaine</option>
+                  <option value="Comblain-au-Pont">Comblain-au-Pont</option>
+                  <option value="Comines-Warneton">Comines-Warneton</option>
+                  <option value="Courcelles">Courcelles</option>
+                  <option value="Court-Saint-Étienne">Court-Saint-Étienne</option>
+                  <option value="Couvin">Couvin</option>
+                  <option value="Crisnée">Crisnée</option>
+                  <option value="Dalhem">Dalhem</option>
+                  <option value="Daverdisse">Daverdisse</option>
+                  <option value="Dinant">Dinant</option>
+                  <option value="Dison">Dison</option>
+                  <option value="Doische">Doische</option>
+                  <option value="Donceel">Donceel</option>
+                  <option value="Dour">Dour</option>
+                  <option value="Durbuy">Durbuy</option>
+                  <option value="Écaussinnes">Écaussinnes</option>
+                  <option value="Éghezée">Éghezée</option>
+                  <option value="Ellezelles">Ellezelles</option>
+                  <option value="Enghien">Enghien</option>
+                  <option value="Engis">Engis</option>
+                  <option value="Érezée">Érezée</option>
+                  <option value="Erquelinnes">Erquelinnes</option>
+                  <option value="Esneux">Esneux</option>
+                  <option value="Estaimpuis">Estaimpuis</option>
+                  <option value="Estinnes">Estinnes</option>
+                  <option value="Étalle">Étalle</option>
+                  <option value="Eupen">Eupen</option>
+                  <option value="Faimes">Faimes</option>
+                  <option value="Farciennes">Farciennes</option>
+                  <option value="Fauvillers">Fauvillers</option>
+                  <option value="Fernelmont">Fernelmont</option>
+                  <option value="Ferrières">Ferrières</option>
+                  <option value="Fexhe-le-Haut-Clocher">Fexhe-le-Haut-Clocher</option>
+                  <option value="Flémalle">Flémalle</option>
+                  <option value="Fléron">Fléron</option>
+                  <option value="Fleurus">Fleurus</option>
+                  <option value="Flobecq">Flobecq</option>
+                  <option value="Floreffe">Floreffe</option>
+                  <option value="Florennes">Florennes</option>
+                  <option value="Florenville">Florenville</option>
+                  <option value="Fontaine-l'Évêque">Fontaine-l'Évêque</option>
+                  <option value="Fosses-la-Ville">Fosses-la-Ville</option>
+                  <option value="Frameries">Frameries</option>
+                  <option value="Frasnes-lez-Anvaing">Frasnes-lez-Anvaing</option>
+                  <option value="Froidchapelle">Froidchapelle</option>
+                  <option value="Gedinne">Gedinne</option>
+                  <option value="Geer">Geer</option>
+                  <option value="Gembloux">Gembloux</option>
+                  <option value="Genappe">Genappe</option>
+                  <option value="Gerpinnes">Gerpinnes</option>
+                  <option value="Gesves">Gesves</option>
+                  <option value="Gouvy">Gouvy</option>
+                  <option value="Grâce-Hollogne">Grâce-Hollogne</option>
+                  <option value="Grez-Doiceau">Grez-Doiceau</option>
+                  <option value="Habay">Habay</option>
+                  <option value="Hamoir">Hamoir</option>
+                  <option value="Hamois">Hamois</option>
+                  <option value="Ham-sur-Heure-Nalinnes">Ham-sur-Heure-Nalinnes</option>
+                  <option value="Hannut">Hannut</option>
+                  <option value="Hastière">Hastière</option>
+                  <option value="Havelange">Havelange</option>
+                  <option value="Hélécine">Hélécine</option>
+                  <option value="Hensies">Hensies</option>
+                  <option value="Herbeumont">Herbeumont</option>
+                  <option value="Héron">Héron</option>
+                  <option value="Herstal">Herstal</option>
+                  <option value="Herve">Herve</option>
+                  <option value="Honnelles">Honnelles</option>
+                  <option value="Hotton">Hotton</option>
+                  <option value="Houffalize">Houffalize</option>
+                  <option value="Houyet">Houyet</option>
+                  <option value="Huy">Huy</option>
+                  <option value="Incourt">Incourt</option>
+                  <option value="Ittre">Ittre</option>
+                  <option value="Jalhay">Jalhay</option>
+                  <option value="Jemeppe-sur-Sambre">Jemeppe-sur-Sambre</option>
+                  <option value="Jodoigne">Jodoigne</option>
+                  <option value="Juprelle">Juprelle</option>
+                  <option value="Jurbise">Jurbise</option>
+                  <option value="Kelmis">Kelmis</option>
+                  <option value="La Calamine">La Calamine</option>
+                  <option value="La Bruyère">La Bruyère</option>
+                  <option value="La Hulpe">La Hulpe</option>
+                  <option value="La Louvière">La Louvière</option>
+                  <option value="La Roche-en-Ardenne">La Roche-en-Ardenne</option>
+                  <option value="Lasne">Lasne</option>
+                  <option value="Léglise">Léglise</option>
+                  <option value="Lens">Lens</option>
+                  <option value="Le Rœulx">Le Rœulx</option>
+                  <option value="Les Bons Villers">Les Bons Villers</option>
+                  <option value="Lessines">Lessines</option>
+                  <option value="Leuze-en-Hainaut">Leuze-en-Hainaut</option>
+                  <option value="Libin">Libin</option>
+                  <option value="Libramont-Chevigny">Libramont-Chevigny</option>
+                  <option value="Liège">Liège</option>
+                  <option value="Lierneux">Lierneux</option>
+                  <option value="Limbourg">Limbourg</option>
+                  <option value="Lincent">Lincent</option>
+                  <option value="Lobbes">Lobbes</option>
+                  <option value="Lontzen">Lontzen</option>
+                  <option value="Malmedy">Malmedy</option>
+                  <option value="Manage">Manage</option>
+                  <option value="Manhay">Manhay</option>
+                  <option value="Marche-en-Famenne">Marche-en-Famenne</option>
+                  <option value="Marchin">Marchin</option>
+                  <option value="Martelange">Martelange</option>
+                  <option value="Meix-devant-Virton">Meix-devant-Virton</option>
+                  <option value="Merbes-le-Château">Merbes-le-Château</option>
+                  <option value="Messancy">Messancy</option>
+                  <option value="Mettet">Mettet</option>
+                  <option value="Modave">Modave</option>
+                  <option value="Momignies">Momignies</option>
+                  <option value="Mons">Mons</option>
+                  <option value="Mont-de-l'Enclus">Mont-de-l'Enclus</option>
+                  <option value="Montigny-le-Tilleul">Montigny-le-Tilleul</option>
+                  <option value="Mont-Saint-Guibert">Mont-Saint-Guibert</option>
+                  <option value="Morlanwelz">Morlanwelz</option>
+                  <option value="Mouscron">Mouscron</option>
+                  <option value="Musson">Musson</option>
+                  <option value="Namur">Namur</option>
+                  <option value="Nandrin">Nandrin</option>
+                  <option value="Nassogne">Nassogne</option>
+                  <option value="Neufchâteau">Neufchâteau</option>
+                  <option value="Neupré">Neupré</option>
+                  <option value="Nivelles">Nivelles</option>
+                  <option value="Ohey">Ohey</option>
+                  <option value="Olne">Olne</option>
+                  <option value="Onhaye">Onhaye</option>
+                  <option value="Oreye">Oreye</option>
+                  <option value="Orp-Jauche">Orp-Jauche</option>
+                  <option value="Ottignies-Louvain-la-Neuve">Ottignies-Louvain-la-Neuve</option>
+                  <option value="Ouffet">Ouffet</option>
+                  <option value="Oupeye">Oupeye</option>
+                  <option value="Paliseul">Paliseul</option>
+                  <option value="Pecq">Pecq</option>
+                  <option value="Pepinster">Pepinster</option>
+                  <option value="Péruwelz">Péruwelz</option>
+                  <option value="Perwez">Perwez</option>
+                  <option value="Philippeville">Philippeville</option>
+                  <option value="Plombières">Plombières</option>
+                  <option value="Pont-à-Celles">Pont-à-Celles</option>
+                  <option value="Profondeville">Profondeville</option>
+                  <option value="Quaregnon">Quaregnon</option>
+                  <option value="Quévy">Quévy</option>
+                  <option value="Quiévrain">Quiévrain</option>
+                  <option value="Raeren">Raeren</option>
+                  <option value="Ramillies">Ramillies</option>
+                  <option value="Rebecq">Rebecq</option>
+                  <option value="Remicourt">Remicourt</option>
+                  <option value="Rendeux">Rendeux</option>
+                  <option value="Rixensart">Rixensart</option>
+                  <option value="Rochefort">Rochefort</option>
+                  <option value="Rouvroy">Rouvroy</option>
+                  <option value="Rumes">Rumes</option>
+                  <option value="Sainte-Ode">Sainte-Ode</option>
+                  <option value="Saint-Georges-sur-Meuse">Saint-Georges-sur-Meuse</option>
+                  <option value="Saint-Ghislain">Saint-Ghislain</option>
+                  <option value="Saint-Hubert">Saint-Hubert</option>
+                  <option value="Saint-Léger-en-Gaume">Saint-Léger-en-Gaume</option>
+                  <option value="Saint-Nicolas">Saint-Nicolas</option>
+                  <option value="Saint-Vith">Saint-Vith</option>
+                  <option value="Sambreville">Sambreville</option>
+                  <option value="Seneffe">Seneffe</option>
+                  <option value="Seraing">Seraing</option>
+                  <option value="Silly">Silly</option>
+                  <option value="Sivry-Rance">Sivry-Rance</option>
+                  <option value="Soignies">Soignies</option>
+                  <option value="Sombreffe">Sombreffe</option>
+                  <option value="Somme-Leuze">Somme-Leuze</option>
+                  <option value="Soumagne">Soumagne</option>
+                  <option value="Spa">Spa</option>
+                  <option value="Sprimont">Sprimont</option>
+                  <option value="Stavelot">Stavelot</option>
+                  <option value="Stoumont">Stoumont</option>
+                  <option value="Tellin">Tellin</option>
+                  <option value="Tenneville">Tenneville</option>
+                  <option value="Theux">Theux</option>
+                  <option value="Thimister-Clermont">Thimister-Clermont</option>
+                  <option value="Thuin">Thuin</option>
+                  <option value="Tinlot">Tinlot</option>
+                  <option value="Tintigny">Tintigny</option>
+                  <option value="Tournai">Tournai</option>
+                  <option value="Trois-Ponts">Trois-Ponts</option>
+                  <option value="Trooz">Trooz</option>
+                  <option value="Tubize">Tubize</option>
+                  <option value="Vaux-sur-Sûre">Vaux-sur-Sûre</option>
+                  <option value="Verlaine">Verlaine</option>
+                  <option value="Verviers">Verviers</option>
+                  <option value="Vielsalm">Vielsalm</option>
+                  <option value="Villers-la-Ville">Villers-la-Ville</option>
+                  <option value="Villers-le-Bouillet">Villers-le-Bouillet</option>
+                  <option value="Viroinval">Viroinval</option>
+                  <option value="Virton">Virton</option>
+                  <option value="Visé">Visé</option>
+                  <option value="Vresse-sur-Semois">Vresse-sur-Semois</option>
+                  <option value="Waimes">Waimes</option>
+                  <option value="Weismes">Weismes</option>
+                  <option value="Walcourt">Walcourt</option>
+                  <option value="Walhain">Walhain</option>
+                  <option value="Wanze">Wanze</option>
+                  <option value="Waremme">Waremme</option>
+                  <option value="Wasseiges">Wasseiges</option>
+                  <option value="Waterloo">Waterloo</option>
+                  <option value="Wavre">Wavre</option>
+                  <option value="Welkenraedt">Welkenraedt</option>
+                  <option value="Wellin">Wellin</option>
+                  <option value="Yvoir">Yvoir</option>
+
+                </select>
+              </div>
+              <input class="form-control txt-field mb-3" type="text" name="destinationText"
+                placeholder="Dropdown Street Address" />
+              <div class="form-group mt-3">
+                <select name="toLocation" class="p-2 select2 select2-hidden-accessible"
+                  style="width:100%; font-size: smaller; height: 40px;" required>
+                  <option value="From Location">To Location</option>
+                  <option value="Paris Charles de Gaulle Airport">Paris Charles de Gaulle Airport</option>
+                  <option value="Paris City">Paris City</option>
+                  <option value="Paris City">Amsterdam Airport Schiphol (Holland)</option>
+                  <option value="Paris City">Amsterdam City</option>
+                  <option value="Paris City">Maastricht City</option>
+                  <option value="Paris City">Brussels Airport (Zaventem)</option>
+                  <option value="Paris City">Charleroi Airport </option>
+                  <option value="Paris City">Ostende Airport </option>
+                  <option value="Paris City">Antwerp Airport </option>
+                  <option value="Paris City">Liege Airport </option>
+                  <option value="Paris City">Brussels South / Midi Train Station</option>
+                  <option value="Viroinval">Viroinval</option>
+                  <option value="Anderlecht">Anderlecht</option>
+                  <option value="Auderghem/Oudergem">Auderghem/Oudergem</option>
+                  <option value="Berchem-Sainte-Agathe/Sint-Agatha-Berchem">Berchem-Sainte-Agathe/Sint-Agatha-Berchem
+                  </option>
+                  <option value="City of Brussels">City of Brussels</option>
+                  <option value="Etterbeek">Etterbeek</option>
+                  <option value="Evere">Evere</option>
+                  <option value="Forest/Vorst">Forest/Vorst</option>
+                  <option value="Ganshoren">Ganshoren</option>
+                  <option value="Ixelles/Elsene">Ixelles/Elsene</option>
+                  <option value="Jette">Jette</option>
+                  <option value="Koekelberg">Koekelberg</option>
+                  <option value="Molenbeek-Saint-Jean/Sint-Jans-Molenbeek">Molenbeek-Saint-Jean/Sint-Jans-Molenbeek
+                  </option>
+                  <option value="Saint-Gilles/Sint-Gillis">Saint-Gilles/Sint-Gillis</option>
+                  <option value="Saint-Josse-ten-Noode/Sint-Joost-ten-Node">Saint-Josse-ten-Noode/Sint-Joost-ten-Node
+                  </option>
+                  <option value="Schaerbeek/Schaarbeek">Schaerbeek/Schaarbeek</option>
+                  <option value="Uccle">Uccle</option>
+                  <option value="Watermael-Boitsfort/Watermaal-Bosvoorde">Watermael-Boitsfort/Watermaal-Bosvoorde
+                  </option>
+                  <option value="Woluwe-Saint-Lambert/Sint-Lambrechts-Woluwe">
+                    Woluwe-Saint-Lambert/Sint-Lambrechts-Woluwe</option>
+                  <option value="Woluwe-Saint-Pierre/Sint-Pieters-Woluwe">Woluwe-Saint-Pierre/Sint-Pieters-Woluwe
+                  </option>
+                  <option value="Aalst">Aalst</option>
+                  <option value="Aalter">Aalter</option>
+                  <option value="Aarschot">Aarschot</option>
+                  <option value="Aartselaar">Aartselaar</option>
+                  <option value="Affligem">Affligem</option>
+                  <option value="Alken">Alken</option>
+                  <option value="Alveringem">Alveringem</option>
+                  <option value="Antwerp">Antwerp</option>
+                  <option value="Anzegem">Anzegem</option>
+                  <option value="Ardooie">Ardooie</option>
+                  <option value="Arendonk">Arendonk</option>
+                  <option value="As">As</option>
+                  <option value="Asse">Asse</option>
+                  <option value="Assenede">Assenede</option>
+                  <option value="Avelgem">Avelgem</option>
+                  <option value="Baarle-Hertog">Baarle-Hertog</option>
+                  <option value="Balen">Balen</option>
+                  <option value="Beernem">Beernem</option>
+                  <option value="Beerse">Beerse</option>
+                  <option value="Beersel">Beersel</option>
+                  <option value="Begijnendijk">Begijnendijk</option>
+                  <option value="Bekkevoort">Bekkevoort</option>
+                  <option value="Beringen">Beringen</option>
+                  <option value="Berlaar">Berlaar</option>
+                  <option value="Berlare">Berlare</option>
+                  <option value="Bertem">Bertem</option>
+                  <option value="Bever">Bever</option>
+                  <option value="Beveren">Beveren</option>
+                  <option value="Bierbeek">Bierbeek</option>
+                  <option value="Bilzen">Bilzen</option>
+                  <option value="Blankenberge">Blankenberge</option>
+                  <option value="Bocholt">Bocholt</option>
+                  <option value="Boechout">Boechout</option>
+                  <option value="Bonheiden">Bonheiden</option>
+                  <option value="Boom">Boom</option>
+                  <option value="Boortmeerbeek">Boortmeerbeek</option>
+                  <option value="Borgloon">Borgloon</option>
+                  <option value="Bornem">Bornem</option>
+                  <option value="Borsbeek">Borsbeek</option>
+                  <option value="Boutersem">Boutersem</option>
+                  <option value="Brakel">Brakel</option>
+                  <option value="Brasschaat">Brasschaat</option>
+                  <option value="Brecht">Brecht</option>
+                  <option value="Bredene">Bredene</option>
+                  <option value="Bree">Bree</option>
+                  <option value="Bruges">Bruges</option>
+                  <option value="Buggenhout">Buggenhout</option>
+                  <option value="Damme">Damme</option>
+                  <option value="Deerlijk">Deerlijk</option>
+                  <option value="De Haan">De Haan</option>
+                  <option value="Deinze">Deinze</option>
+                  <option value="Denderleeuw">Denderleeuw</option>
+                  <option value="Dendermonde">Dendermonde</option>
+                  <option value="Dentergem">Dentergem</option>
+                  <option value="De Panne">De Panne</option>
+                  <option value="De Pinte">De Pinte</option>
+                  <option value="Dessel">Dessel</option>
+                  <option value="Destelbergen">Destelbergen</option>
+                  <option value="Diepenbeek">Diepenbeek</option>
+                  <option value="Diest">Diest</option>
+                  <option value="Diksmuide">Diksmuide</option>
+                  <option value="Dilbeek">Dilbeek</option>
+                  <option value="Dilsen-Stokkem">Dilsen-Stokkem</option>
+                  <option value="Drogenbos">Drogenbos</option>
+                  <option value="Duffel">Duffel</option>
+                  <option value="Edegem">Edegem</option>
+                  <option value="Eeklo">Eeklo</option>
+                  <option value="Erpe-Mere">Erpe-Mere</option>
+                  <option value="Essen">Essen</option>
+                  <option value="Evergem">Evergem</option>
+                  <option value="Galmaarden">Galmaarden</option>
+                  <option value="Gavere">Gavere</option>
+                  <option value="Geel">Geel</option>
+                  <option value="Geetbets">Geetbets</option>
+                  <option value="Genk">Genk</option>
+                  <option value="Geraardsbergen">Geraardsbergen</option>
+                  <option value="Ghent">Ghent</option>
+                  <option value="Gingelom">Gingelom</option>
+                  <option value="Gistel">Gistel</option>
+                  <option value="Glabbeek">Glabbeek</option>
+                  <option value="Gooik">Gooik</option>
+                  <option value="Grimbergen">Grimbergen</option>
+                  <option value="Grobbendonk">Grobbendonk</option>
+                  <option value="Haacht">Haacht</option>
+                  <option value="Haaltert">Haaltert</option>
+                  <option value="Halen">Halen</option>
+                  <option value="Halle">Halle</option>
+                  <option value="Ham">Ham</option>
+                  <option value="Hamme">Hamme</option>
+                  <option value="Hamont-Achel">Hamont-Achel</option>
+                  <option value="Harelbeke">Harelbeke</option>
+                  <option value="Hasselt">Hasselt</option>
+                  <option value="Hechtel-Eksel">Hechtel-Eksel</option>
+                  <option value="Heers">Heers</option>
+                  <option value="Heist-op-den-Berg">Heist-op-den-Berg</option>
+                  <option value="Hemiksem">Hemiksem</option>
+                  <option value="Herent">Herent</option>
+                  <option value="Herentals">Herentals</option>
+                  <option value="Herenthout">Herenthout</option>
+                  <option value="Herk-de-Stad">Herk-de-Stad</option>
+                  <option value="Herne">Herne</option>
+                  <option value="Herselt">Herselt</option>
+                  <option value="Herstappe">Herstappe</option>
+                  <option value="Herzele">Herzele</option>
+                  <option value="Heusden-Zolder">Heusden-Zolder</option>
+                  <option value="Heuvelland">Heuvelland</option>
+                  <option value="Hoegaarden">Hoegaarden</option>
+                  <option value="Hoeilaart">Hoeilaart</option>
+                  <option value="Hoeselt">Hoeselt</option>
+                  <option value="Holsbeek">Holsbeek</option>
+                  <option value="Hooglede">Hooglede</option>
+                  <option value="Hoogstraten">Hoogstraten</option>
+                  <option value="Horebeke">Horebeke</option>
+                  <option value="Houthalen-Helchteren">Houthalen-Helchteren</option>
+                  <option value="Houthulst">Houthulst</option>
+                  <option value="Hove">Hove</option>
+                  <option value="Huldenberg">Huldenberg</option>
+                  <option value="Hulshout">Hulshout</option>
+                  <option value="Ichtegem">Ichtegem</option>
+                  <option value="Ingelmunster">Ingelmunster</option>
+                  <option value="Izegem">Izegem</option>
+                  <option value="Jabbeke">Jabbeke</option>
+                  <option value="Kalmthout">Kalmthout</option>
+                  <option value="Kampenhout">Kampenhout</option>
+                  <option value="Kapellen">Kapellen</option>
+                  <option value="Kapelle-op-den-Bos">Kapelle-op-den-Bos</option>
+                  <option value="Kaprijke">Kaprijke</option>
+                  <option value="Kasterlee">Kasterlee</option>
+                  <option value="Keerbergen">Keerbergen</option>
+                  <option value="Kinrooi">Kinrooi</option>
+                  <option value="Kluisbergen">Kluisbergen</option>
+                  <option value="Knokke-Heist">Knokke-Heist</option>
+                  <option value="Koekelare">Koekelare</option>
+                  <option value="Koksijde">Koksijde</option>
+                  <option value="Kontich">Kontich</option>
+                  <option value="Kortemark">Kortemark</option>
+                  <option value="Kortenaken">Kortenaken</option>
+                  <option value="Kortenberg">Kortenberg</option>
+                  <option value="Kortessem">Kortessem</option>
+                  <option value="Kortrijk">Kortrijk</option>
+                  <option value="Kraainem">Kraainem</option>
+                  <option value="Kruibeke">Kruibeke</option>
+                  <option value="Kruisem">Kruisem</option>
+                  <option value="Kuurne">Kuurne</option>
+                  <option value="Laakdal">Laakdal</option>
+                  <option value="Laarne">Laarne</option>
+                  <option value="Lanaken">Lanaken</option>
+                  <option value="Landen">Landen</option>
+                  <option value="Langemark-Poelkapelle">Langemark-Poelkapelle</option>
+                  <option value="Lebbeke">Lebbeke</option>
+                  <option value="Lede">Lede</option>
+                  <option value="Ledegem">Ledegem</option>
+                  <option value="Lendelede">Lendelede</option>
+                  <option value="Lennik">Lennik</option>
+                  <option value="Leopoldsburg">Leopoldsburg</option>
+                  <option value="Leuven">Leuven</option>
+                  <option value="Lichtervelde">Lichtervelde</option>
+                  <option value="Liedekerke">Liedekerke</option>
+                  <option value="Lier">Lier</option>
+                  <option value="Lierde">Lierde</option>
+                  <option value="Lievegem">Lievegem</option>
+                  <option value="Lille">Lille</option>
+                  <option value="Linkebeek">Linkebeek</option>
+                  <option value="Lint">Lint</option>
+                  <option value="Linter">Linter</option>
+                  <option value="Lochristi">Lochristi</option>
+                  <option value="Lokeren">Lokeren</option>
+                  <option value="Lommel">Lommel</option>
+                  <option value="Londerzeel">Londerzeel</option>
+                  <option value="Lo-Reninge">Lo-Reninge</option>
+                  <option value="Lubbeek">Lubbeek</option>
+                  <option value="Lummen">Lummen</option>
+                  <option value="Maarkedal">Maarkedal</option>
+                  <option value="Maaseik">Maaseik</option>
+                  <option value="Maasmechelen">Maasmechelen</option>
+                  <option value="Machelen">Machelen</option>
+                  <option value="Maldegem">Maldegem</option>
+                  <option value="Malle">Malle</option>
+                  <option value="Mechelen">Mechelen</option>
+                  <option value="Meerhout">Meerhout</option>
+                  <option value="Meise">Meise</option>
+                  <option value="Melle">Melle</option>
+                  <option value="Menen">Menen</option>
+                  <option value="Merchtem">Merchtem</option>
+                  <option value="Merelbeke">Merelbeke</option>
+                  <option value="Merksplas">Merksplas</option>
+                  <option value="Mesen">Mesen</option>
+                  <option value="Meulebeke">Meulebeke</option>
+                  <option value="Middelkerke">Middelkerke</option>
+                  <option value="Moerbeke">Moerbeke</option>
+                  <option value="Mol">Mol</option>
+                  <option value="Moorslede">Moorslede</option>
+                  <option value="Mortsel">Mortsel</option>
+                  <option value="Nazareth">Nazareth</option>
+                  <option value="Niel">Niel</option>
+                  <option value="Nieuwerkerken">Nieuwerkerken</option>
+                  <option value="Nieuwpoort">Nieuwpoort</option>
+                  <option value="Ninove">Ninove</option>
+                  <option value="Olen">Olen</option>
+                  <option value="Oosterzele">Oosterzele</option>
+                  <option value="Oostkamp">Oostkamp</option>
+                  <option value="Oostrozebeke">Oostrozebeke</option>
+                  <option value="Opwijk">Opwijk</option>
+                  <option value="Ostend">Ostend</option>
+                  <option value="Oudenaarde">Oudenaarde</option>
+                  <option value="Oudenburg">Oudenburg</option>
+                  <option value="Oudsbergen">Oudsbergen</option>
+                  <option value="Oud-Heverlee">Oud-Heverlee</option>
+                  <option value="Oud-Turnhout">Oud-Turnhout</option>
+                  <option value="Overijse">Overijse</option>
+                  <option value="Peer">Peer</option>
+                  <option value="Pelt">Pelt</option>
+                  <option value="Pepingen">Pepingen</option>
+                  <option value="Pittem">Pittem</option>
+                  <option value="Poperinge">Poperinge</option>
+                  <option value="Putte">Putte</option>
+                  <option value="Puurs-Sint-Amands">Puurs-Sint-Amands</option>
+                  <option value="Ranst">Ranst</option>
+                  <option value="Ravels">Ravels</option>
+                  <option value="Retie">Retie</option>
+                  <option value="Riemst">Riemst</option>
+                  <option value="Rijkevorsel">Rijkevorsel</option>
+                  <option value="Roeselare">Roeselare</option>
+                  <option value="Ronse">Ronse</option>
+                  <option value="Roosdaal">Roosdaal</option>
+                  <option value="Rotterdam">Rotterdam</option>
+                  <option value="Rotselaar">Rotselaar</option>
+                  <option value="Ruiselede">Ruiselede</option>
+                  <option value="Rumst">Rumst</option>
+                  <option value="Schelle">Schelle</option>
+                  <option value="Scherpenheuvel-Zichem">Scherpenheuvel-Zichem</option>
+                  <option value="Schilde">Schilde</option>
+                  <option value="Schoten">Schoten</option>
+                  <option value="Sint-Agatha-Berchem">Sint-Agatha-Berchem</option>
+                  <option value="Sint-Gillis-Waas">Sint-Gillis-Waas</option>
+                  <option value="Sint-Katelijne-Waver">Sint-Katelijne-Waver</option>
+                  <option value="Sint-Lievens-Houtem">Sint-Lievens-Houtem</option>
+                  <option value="Sint-Martens-Latem">Sint-Martens-Latem</option>
+                  <option value="Sint-Niklaas">Sint-Niklaas</option>
+                  <option value="Sint-Pieters-Leeuw">Sint-Pieters-Leeuw</option>
+                  <option value="Sint-Truiden">Sint-Truiden</option>
+                  <option value="Spiere-Helkijn">Spiere-Helkijn</option>
+                  <option value="Stabroek">Stabroek</option>
+                  <option value="Staden">Staden</option>
+                  <option value="Steenokkerzeel">Steenokkerzeel</option>
+                  <option value="Stekene">Stekene</option>
+                  <option value="Temse">Temse</option>
+                  <option value="Ternat">Ternat</option>
+                  <option value="Tervuren">Tervuren</option>
+                  <option value="Tessenderlo">Tessenderlo</option>
+                  <option value="Tielt">Tielt</option>
+                  <option value="Tielt-Winge">Tielt-Winge</option>
+                  <option value="Tienen">Tienen</option>
+                  <option value="Tongeren">Tongeren</option>
+                  <option value="Torhout">Torhout</option>
+                  <option value="Tremelo">Tremelo</option>
+                  <option value="Turnhout">Turnhout</option>
+                  <option value="Uitgeest">Uitgeest</option>
+                  <option value="Veurne">Veurne</option>
+                  <option value="Vilvoorde">Vilvoorde</option>
+                  <option value="Vleteren">Vleteren</option>
+                  <option value="Voeren">Voeren</option>
+                  <option value="Vorselaar">Vorselaar</option>
+                  <option value="Vosselaar">Vosselaar</option>
+                  <option value="Waarschoot">Waarschoot</option>
+                  <option value="Waasmunster">Waasmunster</option>
+                  <option value="Wachtebeke">Wachtebeke</option>
+                  <option value="Wakken">Wakken</option>
+                  <option value="Walcourt">Walcourt</option>
+                  <option value="Waregem">Waregem</option>
+                  <option value="Wellen">Wellen</option>
+                  <option value="Wemmel">Wemmel</option>
+                  <option value="Wervik">Wervik</option>
+                  <option value="Westerlo">Westerlo</option>
+                  <option value="Wetteren">Wetteren</option>
+                  <option value="Wevelgem">Wevelgem</option>
+                  <option value="Wezembeek-Oppem">Wezembeek-Oppem</option>
+                  <option value="Wichelen">Wichelen</option>
+                  <option value="Wielsbeke">Wielsbeke</option>
+                  <option value="Wijnegem">Wijnegem</option>
+                  <option value="Willebroek">Willebroek</option>
+                  <option value="Wingene">Wingene</option>
+                  <option value="Wommelgem">Wommelgem</option>
+                  <option value="Wommersom">Wommersom</option>
+                  <option value="Wuustwezel">Wuustwezel</option>
+                  <option value="Zandhoven">Zandhoven</option>
+                  <option value="Zaventem">Zaventem</option>
+                  <option value="Zedelgem">Zedelgem</option>
+                  <option value="Zele">Zele</option>
+                  <option value="Zelzate">Zelzate</option>
+                  <option value="Zemst">Zemst</option>
+                  <option value="Zingem">Zingem</option>
+                  <option value="Zoersel">Zoersel</option>
+                  <option value="Zomergem">Zomergem</option>
+                  <option value="Zonhoven">Zonhoven</option>
+                  <option value="Zonnebeke">Zonnebeke</option>
+                  <option value="Zottegem">Zottegem</option>
+                  <option value="Zoutleeuw">Zoutleeuw</option>
+                  <option value="Zuienkerke">Zuienkerke</option>
+                  <option value="Zulte">Zulte</option>
+                  <option value="Zutendaal">Zutendaal</option>
+                  <option value="Zwalm">Zwalm</option>
+                  <option value="Zwijndrecht">Zwijndrecht</option>
+                  <option value="Zwijndrecht">Zwijndrecht</option>
+                  <option value="Woluwe-Saint-Pierre/Sint-Pieters-Woluwe">Woluwe-Saint-Pierre/Sint-Pieters-Woluwe
+                  </option>
+                  <option value="Aiseau-Presles">Aiseau-Presles</option>
+                  <option value="Amay">Amay</option>
+                  <option value="Amel">Amel</option>
+                  <option value="Amblève">Amblève</option>
+                  <option value="Andenne">Andenne</option>
+                  <option value="Anderlues">Anderlues</option>
+                  <option value="Anhée">Anhée</option>
+                  <option value="Ans">Ans</option>
+                  <option value="Anthisnes">Anthisnes</option>
+                  <option value="Antoing">Antoing</option>
+                  <option value="Arlon">Arlon</option>
+                  <option value="Assesse">Assesse</option>
+                  <option value="Ath">Ath</option>
+                  <option value="Attert">Attert</option>
+                  <option value="Aubange">Aubange</option>
+                  <option value="Aubel">Aubel</option>
+                  <option value="Awans">Awans</option>
+                  <option value="Aywaille">Aywaille</option>
+                  <option value="Baelen">Baelen</option>
+                  <option value="Bassenge">Bassenge</option>
+                  <option value="Bastogne">Bastogne</option>
+                  <option value="Beaumont">Beaumont</option>
+                  <option value="Beauraing">Beauraing</option>
+                  <option value="Beauvechain">Beauvechain</option>
+                  <option value="Belœil">Belœil</option>
+                  <option value="Berloz">Berloz</option>
+                  <option value="Bernissart">Bernissart</option>
+                  <option value="Bertogne">Bertogne</option>
+                  <option value="Bertrix">Bertrix</option>
+                  <option value="Beyne-Heusay">Beyne-Heusay</option>
+                  <option value="Bièvre">Bièvre</option>
+                  <option value="Binche">Binche</option>
+                  <option value="Blegny">Blegny</option>
+                  <option value="Bouillon">Bouillon</option>
+                  <option value="Boussu">Boussu</option>
+                  <option value="Braine-l'Alleud">Braine-l'Alleud</option>
+                  <option value="Braine-le-Château">Braine-le-Château</option>
+                  <option value="Braine-le-Comte">Braine-le-Comte</option>
+                  <option value="Braives">Braives</option>
+                  <option value="Brugelette">Brugelette</option>
+                  <option value="Brunehaut">Brunehaut</option>
+                  <option value="Büllingen">Büllingen</option>
+                  <option value="Bullange">Bullange</option>
+                  <option value="Burdinne">Burdinne</option>
+                  <option value="Burg-Reuland">Burg-Reuland</option>
+                  <option value="Bütgenbach">Bütgenbach</option>
+                  <option value="Butgenbach">Butgenbach</option>
+                  <option value="Celles">Celles</option>
+                  <option value="Cerfontaine">Cerfontaine</option>
+                  <option value="Chapelle-lez-Herlaimont">Chapelle-lez-Herlaimont</option>
+                  <option value="Charleroi">Charleroi</option>
+                  <option value="Chastre">Chastre</option>
+                  <option value="Châtelet">Châtelet</option>
+                  <option value="Chaudfontaine">Chaudfontaine</option>
+                  <option value="Chaumont-Gistoux">Chaumont-Gistoux</option>
+                  <option value="Chièvres">Chièvres</option>
+                  <option value="Chimay">Chimay</option>
+                  <option value="Chiny">Chiny</option>
+                  <option value="Ciney">Ciney</option>
+                  <option value="Clavier">Clavier</option>
+                  <option value="Colfontaine">Colfontaine</option>
+                  <option value="Comblain-au-Pont">Comblain-au-Pont</option>
+                  <option value="Comines-Warneton">Comines-Warneton</option>
+                  <option value="Courcelles">Courcelles</option>
+                  <option value="Court-Saint-Étienne">Court-Saint-Étienne</option>
+                  <option value="Couvin">Couvin</option>
+                  <option value="Crisnée">Crisnée</option>
+                  <option value="Dalhem">Dalhem</option>
+                  <option value="Daverdisse">Daverdisse</option>
+                  <option value="Dinant">Dinant</option>
+                  <option value="Dison">Dison</option>
+                  <option value="Doische">Doische</option>
+                  <option value="Donceel">Donceel</option>
+                  <option value="Dour">Dour</option>
+                  <option value="Durbuy">Durbuy</option>
+                  <option value="Écaussinnes">Écaussinnes</option>
+                  <option value="Éghezée">Éghezée</option>
+                  <option value="Ellezelles">Ellezelles</option>
+                  <option value="Enghien">Enghien</option>
+                  <option value="Engis">Engis</option>
+                  <option value="Érezée">Érezée</option>
+                  <option value="Erquelinnes">Erquelinnes</option>
+                  <option value="Esneux">Esneux</option>
+                  <option value="Estaimpuis">Estaimpuis</option>
+                  <option value="Estinnes">Estinnes</option>
+                  <option value="Étalle">Étalle</option>
+                  <option value="Eupen">Eupen</option>
+                  <option value="Faimes">Faimes</option>
+                  <option value="Farciennes">Farciennes</option>
+                  <option value="Fauvillers">Fauvillers</option>
+                  <option value="Fernelmont">Fernelmont</option>
+                  <option value="Ferrières">Ferrières</option>
+                  <option value="Fexhe-le-Haut-Clocher">Fexhe-le-Haut-Clocher</option>
+                  <option value="Flémalle">Flémalle</option>
+                  <option value="Fléron">Fléron</option>
+                  <option value="Fleurus">Fleurus</option>
+                  <option value="Flobecq">Flobecq</option>
+                  <option value="Floreffe">Floreffe</option>
+                  <option value="Florennes">Florennes</option>
+                  <option value="Florenville">Florenville</option>
+                  <option value="Fontaine-l'Évêque">Fontaine-l'Évêque</option>
+                  <option value="Fosses-la-Ville">Fosses-la-Ville</option>
+                  <option value="Frameries">Frameries</option>
+                  <option value="Frasnes-lez-Anvaing">Frasnes-lez-Anvaing</option>
+                  <option value="Froidchapelle">Froidchapelle</option>
+                  <option value="Gedinne">Gedinne</option>
+                  <option value="Geer">Geer</option>
+                  <option value="Gembloux">Gembloux</option>
+                  <option value="Genappe">Genappe</option>
+                  <option value="Gerpinnes">Gerpinnes</option>
+                  <option value="Gesves">Gesves</option>
+                  <option value="Gouvy">Gouvy</option>
+                  <option value="Grâce-Hollogne">Grâce-Hollogne</option>
+                  <option value="Grez-Doiceau">Grez-Doiceau</option>
+                  <option value="Habay">Habay</option>
+                  <option value="Hamoir">Hamoir</option>
+                  <option value="Hamois">Hamois</option>
+                  <option value="Ham-sur-Heure-Nalinnes">Ham-sur-Heure-Nalinnes</option>
+                  <option value="Hannut">Hannut</option>
+                  <option value="Hastière">Hastière</option>
+                  <option value="Havelange">Havelange</option>
+                  <option value="Hélécine">Hélécine</option>
+                  <option value="Hensies">Hensies</option>
+                  <option value="Herbeumont">Herbeumont</option>
+                  <option value="Héron">Héron</option>
+                  <option value="Herstal">Herstal</option>
+                  <option value="Herve">Herve</option>
+                  <option value="Honnelles">Honnelles</option>
+                  <option value="Hotton">Hotton</option>
+                  <option value="Houffalize">Houffalize</option>
+                  <option value="Houyet">Houyet</option>
+                  <option value="Huy">Huy</option>
+                  <option value="Incourt">Incourt</option>
+                  <option value="Ittre">Ittre</option>
+                  <option value="Jalhay">Jalhay</option>
+                  <option value="Jemeppe-sur-Sambre">Jemeppe-sur-Sambre</option>
+                  <option value="Jodoigne">Jodoigne</option>
+                  <option value="Juprelle">Juprelle</option>
+                  <option value="Jurbise">Jurbise</option>
+                  <option value="Kelmis">Kelmis</option>
+                  <option value="La Calamine">La Calamine</option>
+                  <option value="La Bruyère">La Bruyère</option>
+                  <option value="La Hulpe">La Hulpe</option>
+                  <option value="La Louvière">La Louvière</option>
+                  <option value="La Roche-en-Ardenne">La Roche-en-Ardenne</option>
+                  <option value="Lasne">Lasne</option>
+                  <option value="Léglise">Léglise</option>
+                  <option value="Lens">Lens</option>
+                  <option value="Le Rœulx">Le Rœulx</option>
+                  <option value="Les Bons Villers">Les Bons Villers</option>
+                  <option value="Lessines">Lessines</option>
+                  <option value="Leuze-en-Hainaut">Leuze-en-Hainaut</option>
+                  <option value="Libin">Libin</option>
+                  <option value="Libramont-Chevigny">Libramont-Chevigny</option>
+                  <option value="Liège">Liège</option>
+                  <option value="Lierneux">Lierneux</option>
+                  <option value="Limbourg">Limbourg</option>
+                  <option value="Lincent">Lincent</option>
+                  <option value="Lobbes">Lobbes</option>
+                  <option value="Lontzen">Lontzen</option>
+                  <option value="Malmedy">Malmedy</option>
+                  <option value="Manage">Manage</option>
+                  <option value="Manhay">Manhay</option>
+                  <option value="Marche-en-Famenne">Marche-en-Famenne</option>
+                  <option value="Marchin">Marchin</option>
+                  <option value="Martelange">Martelange</option>
+                  <option value="Meix-devant-Virton">Meix-devant-Virton</option>
+                  <option value="Merbes-le-Château">Merbes-le-Château</option>
+                  <option value="Messancy">Messancy</option>
+                  <option value="Mettet">Mettet</option>
+                  <option value="Modave">Modave</option>
+                  <option value="Momignies">Momignies</option>
+                  <option value="Mons">Mons</option>
+                  <option value="Mont-de-l'Enclus">Mont-de-l'Enclus</option>
+                  <option value="Montigny-le-Tilleul">Montigny-le-Tilleul</option>
+                  <option value="Mont-Saint-Guibert">Mont-Saint-Guibert</option>
+                  <option value="Morlanwelz">Morlanwelz</option>
+                  <option value="Mouscron">Mouscron</option>
+                  <option value="Musson">Musson</option>
+                  <option value="Namur">Namur</option>
+                  <option value="Nandrin">Nandrin</option>
+                  <option value="Nassogne">Nassogne</option>
+                  <option value="Neufchâteau">Neufchâteau</option>
+                  <option value="Neupré">Neupré</option>
+                  <option value="Nivelles">Nivelles</option>
+                  <option value="Ohey">Ohey</option>
+                  <option value="Olne">Olne</option>
+                  <option value="Onhaye">Onhaye</option>
+                  <option value="Oreye">Oreye</option>
+                  <option value="Orp-Jauche">Orp-Jauche</option>
+                  <option value="Ottignies-Louvain-la-Neuve">Ottignies-Louvain-la-Neuve</option>
+                  <option value="Ouffet">Ouffet</option>
+                  <option value="Oupeye">Oupeye</option>
+                  <option value="Paliseul">Paliseul</option>
+                  <option value="Pecq">Pecq</option>
+                  <option value="Pepinster">Pepinster</option>
+                  <option value="Péruwelz">Péruwelz</option>
+                  <option value="Perwez">Perwez</option>
+                  <option value="Philippeville">Philippeville</option>
+                  <option value="Plombières">Plombières</option>
+                  <option value="Pont-à-Celles">Pont-à-Celles</option>
+                  <option value="Profondeville">Profondeville</option>
+                  <option value="Quaregnon">Quaregnon</option>
+                  <option value="Quévy">Quévy</option>
+                  <option value="Quiévrain">Quiévrain</option>
+                  <option value="Raeren">Raeren</option>
+                  <option value="Ramillies">Ramillies</option>
+                  <option value="Rebecq">Rebecq</option>
+                  <option value="Remicourt">Remicourt</option>
+                  <option value="Rendeux">Rendeux</option>
+                  <option value="Rixensart">Rixensart</option>
+                  <option value="Rochefort">Rochefort</option>
+                  <option value="Rouvroy">Rouvroy</option>
+                  <option value="Rumes">Rumes</option>
+                  <option value="Sainte-Ode">Sainte-Ode</option>
+                  <option value="Saint-Georges-sur-Meuse">Saint-Georges-sur-Meuse</option>
+                  <option value="Saint-Ghislain">Saint-Ghislain</option>
+                  <option value="Saint-Hubert">Saint-Hubert</option>
+                  <option value="Saint-Léger-en-Gaume">Saint-Léger-en-Gaume</option>
+                  <option value="Saint-Nicolas">Saint-Nicolas</option>
+                  <option value="Saint-Vith">Saint-Vith</option>
+                  <option value="Sambreville">Sambreville</option>
+                  <option value="Seneffe">Seneffe</option>
+                  <option value="Seraing">Seraing</option>
+                  <option value="Silly">Silly</option>
+                  <option value="Sivry-Rance">Sivry-Rance</option>
+                  <option value="Soignies">Soignies</option>
+                  <option value="Sombreffe">Sombreffe</option>
+                  <option value="Somme-Leuze">Somme-Leuze</option>
+                  <option value="Soumagne">Soumagne</option>
+                  <option value="Spa">Spa</option>
+                  <option value="Sprimont">Sprimont</option>
+                  <option value="Stavelot">Stavelot</option>
+                  <option value="Stoumont">Stoumont</option>
+                  <option value="Tellin">Tellin</option>
+                  <option value="Tenneville">Tenneville</option>
+                  <option value="Theux">Theux</option>
+                  <option value="Thimister-Clermont">Thimister-Clermont</option>
+                  <option value="Thuin">Thuin</option>
+                  <option value="Tinlot">Tinlot</option>
+                  <option value="Tintigny">Tintigny</option>
+                  <option value="Tournai">Tournai</option>
+                  <option value="Trois-Ponts">Trois-Ponts</option>
+                  <option value="Trooz">Trooz</option>
+                  <option value="Tubize">Tubize</option>
+                  <option value="Vaux-sur-Sûre">Vaux-sur-Sûre</option>
+                  <option value="Verlaine">Verlaine</option>
+                  <option value="Verviers">Verviers</option>
+                  <option value="Vielsalm">Vielsalm</option>
+                  <option value="Villers-la-Ville">Villers-la-Ville</option>
+                  <option value="Villers-le-Bouillet">Villers-le-Bouillet</option>
+                  <option value="Viroinval">Viroinval</option>
+                  <option value="Virton">Virton</option>
+                  <option value="Visé">Visé</option>
+                  <option value="Vresse-sur-Semois">Vresse-sur-Semois</option>
+                  <option value="Waimes">Waimes</option>
+                  <option value="Weismes">Weismes</option>
+                  <option value="Walcourt">Walcourt</option>
+                  <option value="Walhain">Walhain</option>
+                  <option value="Wanze">Wanze</option>
+                  <option value="Waremme">Waremme</option>
+                  <option value="Wasseiges">Wasseiges</option>
+                  <option value="Waterloo">Waterloo</option>
+                  <option value="Wavre">Wavre</option>
+                  <option value="Welkenraedt">Welkenraedt</option>
+                  <option value="Wellin">Wellin</option>
+                  <option value="Yvoir">Yvoir</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-10">
+              <input class="form-control txt-field mb-3" type="text" name="extras"
+                placeholder="Extras: Baby carriage, flight no etc..." />
+              <div class="form-group ">
+                <select name="payment" class="p-2 select2 select2-hidden-accessible"
+                  style="width:100%; font-size: smaller; height: 40px;" required>
+                  <option value="Payment Method">Payment Method</option>
+                  <option value="card">By Card 💳</option>
+                  <option value="cash">By Cash 💶</option>
+                </select>
+              </div>
+              <div class="form-group mb-3">
+                <div class="input-group dates-wrap">
+                  <input id="datepicker2" class="dates form-control hasDatepicker" placeholder="Date" type="text"
+                    name="date" required />
+                </div>
+              </div>
+              <div class="form-group ">
+                <div class="input-group">
+                  <input class="timepicker form-control " placeholder="Time" type="text" name="time" required />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Axios Link -->
+          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+          <!-- Toast Link -->
+          <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+
+          <script>
+
+            const bookingForm = document.getElementById('bookingForm');
+            console.log("bookingForm :", bookingForm);
+
+            bookingForm.addEventListener('submit', async (e) => {
+              e.preventDefault();
+
+
+              // Check if the user is logged in
+              const userDataString = localStorage.getItem('userData');
+              console.log("userDataString :", userDataString);
+
+              if (!userDataString) {
+                iziToast.warning({
+                  title: 'Warning',
+                  message: 'Please register or login first.',
+                  position: 'topRight'
+                });
+                // Redirect to register page after a delay
+                setTimeout(() => {
+                  window.location.href = './register.html'; // Replace 'register.html' with your actual register page URL
+                }, 2000); // Redirect after 2 seconds
+                return;
+              }
+
+              const userData = JSON.parse(userDataString); // Parse the stored user data
+              console.log("userData :", userData);
+
+              const userId = userData.user.userId; // Get the user ID
+              console.log("userId :", userId);
+
+
+              const formData = new FormData(bookingForm);
+              console.log("formData :", formData);
+              const carBookingData = Object.fromEntries(formData.entries());
+              console.log("carBookingData  :", carBookingData);
+
+              try {
+                var response = await axios.post('http://localhost:3000/api/createData', { ...carBookingData, userId }, {
+                  withCredentials: true,
+                });
+                console.log('Car Booking successful:', response.data);
+
+                iziToast.success({
+                  title: 'Success',
+                  message: 'Car Booking submitted successfully.',
+                  position: 'topRight'
+                });
+
+                bookingForm.reset(); // Clear the form after successful submission
+
+
+              } catch (error) {
+                console.error('Car Booking Error:', error.response.data);
+                iziToast.error({
+                  title: 'Error',
+                  message: "Car Booking failed. Please try again.",
+                  position: 'topRight'
+                });
+              }
+            });
+          </script>
+
+
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-4 col-10">
+              <div class="form-group my-3">
+                <div id="error-message"></div>
+                <button style="background-color: #f9d700;" class="btn btn-lg text-center btn-block text-uppercase"
+                  type="submit" id="reservationButton"><b>Make reservation</b></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- </div> -->
+
+
+    </div>
+  </div>
+  <!-- </section> -->
+
+  <section class="ftco-section ftco-about">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-md-6 p-md-2 img img-2 d-flex justify-content-center align-items-center">
+          <img src="pexels-mikebirdy-112460.jpg" width="100%" height="100%" alt="">
+        </div>
+        <div class="col-md-6 wrap-about ftco-animate">
+          <div class="heading-section heading-section-white pl-md-5">
+            <h2 class="mb-4">Globally Connected by Large Network</h2>
+
+            <p>We are here to listen from you deliver exellence</p>
+            <p>If you want to travel in any part of the country, you just need BelTransfers with you. We provide quick
+              solution and more importantly we arrange your dream cars just for you.</p>
+            <h6><a href="#" class="btn btn-light py-2 px-4 border-0 mt-3" style="background-color: #f9d700 ;"><b>GET
+                  DETAILS</b></a></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-10 text-center heading-section ftco-animate">
+          <h2 class="mb-3">What Services we offer to our clients</h2>
+          <p class="subheading">Who are in extremely love with eco friendly system.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="services services-2 w-100 text-center">
+            <div class="icon d-flex align-items-center justify-content-center"><img src="sedan-car-front_48688.png"
+                width="40" height="40" alt="">
+              </span></div>
+            <div class="text w-100">
+              <h3 class="heading mb-2">Cab Service</h3>
+              <p>
+                Enjoy seamless Cab with BelTransfers.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="services services-2 w-100 text-center">
+            <div class="icon d-flex align-items-center justify-content-center"><img src="handbag_10801720.png"
+                width="40" height="40" alt=""></div>
+            <div class="text w-100">
+              <h3 class="heading mb-2">Office Pick-ups</h3>
+              <p>
+                Just signup with us.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="services services-2 w-100 text-center">
+            <div class="icon d-flex align-items-center justify-content-center"><img src="calendar_3869068.png"
+                width="40" height="40" alt=""></div>
+            <div class="text w-100">
+              <h3 class="heading mb-2">Event Transportation</h3>
+              <p>
+                Your event is our responsibility.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="services services-2 w-100 text-center">
+            <div class="icon d-flex align-items-center justify-content-center"><img src="location_5591630.png"
+                width="40" height="40" alt=""></div>
+            <div class="text w-100">
+              <h3 class="heading mb-2">Airports Pick-ups</h3>
+              <p>
+                Personalized airport picks and dropoff.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section ftco-intro" style="background-image: url(pexels-mikebirdy-127745.jpg);">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-md-8 heading-section heading-section-white ftco-animate">
+          <h2 class="mb-3">Image Gallery that we like to share</h2>
+          <P class="">Who have a deep passion for environmentally friendly systems.</P>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row d-flex">
+
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry justify-content-end">
+            <a href="#" class="block-20" style="background-image: url('847.jpg');">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry justify-content-end">
+            <a href="#" class="block-20" style="background-image: url('images.jpeg');">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry justify-content-end">
+            <a href="#" class="block-20" style="background-image: url('846.jpg');">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry justify-content-end">
+            <a href="#" class="block-20" style="background-image: url('3.jpg');">
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry justify-content-end">
+            <a href="#" class="block-20" style="background-image: url('48.jpg');">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex ftco-animate">
+          <div class="blog-entry">
+            <a href="#" class="block-20" style="background-image: url('4007.jpg');">
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-12 text-center">
+          <h1>Client’s Reviews</h1>
+          <p>Our team provided exceptional service and achieved outstanding results.</p>
+        </div>
+        <div class="col-12 col-md-4 p-3 text-center">
+          <h5><b>Cody Hines</b></h5>
+          <p>The website is user-friendly and the process of booking a ride is seamless.</p>
+        </div>
+        <div class="col-12 col-md-4 p-3 text-center">
+          <h5><b>Chad Herrera</b></h5>
+          <p>This is my go-to ride booking platform for all my transportation needs.</p>
+        </div>
+        <div class="col-12 col-md-4 p-3 text-center">
+          <h5><b>Andre Gonzalez</b></h5>
+          <p>I was pleasantly surprised by the quality of this ride booking service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-counter ftco-section img bg-light" id="section-counter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-8 justify-content-center counter-wrap ftco-animate">
+          <h1><b>Experience Great Support</b></h1>
+          <p>We understand the demand of the customers and we have talented agents who transform your complaints into
+            solution.</p>
+        </div>
+        <div class="col-md-6 col-lg-4 d-flex align-items-center justify-content-center counter-wrap ftco-animate">
+          <div class="block-18">
+            <div class="text text-border d-flex align-items-center">
+              <button class="border-0 py-1 px-3 rounded" style="background-color: #f9d700;">
+                <a href="#" class="text-dark"><b>REACH OUR SUPPORT TEAM</b></a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="ftco-footer ftco-bg-dark ftco-section" style="padding-top: 20px; padding-bottom: 20px;">
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4 ml-md-5">
+            <h2 class="ftco-heading-2"><b>Quick links</b></h2>
+            <ul class="list-unstyled">
+              <li><a href="#" class="py-1 d-block">Home</a></li>
+              <li><a href="#" class="py-1 d-block">About</a></li>
+              <li><a href="#" class="py-1 d-block">Services</a></li>
+              <li><a href="#" class="py-1 d-block">Term and Conditions</a></li>
+              <li><a href="#" class="py-1 d-block">Contact</a></li>
+              <li><a href="#" class="py-1 d-block">Privacy &amp; Cookies Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2"><b>Follow Us</b></h2>
+            <p>Let us be social</p>
+            <ul class="list-unstyled">
+              <li><a href="https://www.facebook.com" class="py-1 d-block"><b>f</b></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="ftco-footer-widget mb-4">
+            <h2 class="ftco-heading-2"><b>We Accept</b></h2>
+            <div class="block-23 mb-3">
+              <img src="payment.jpg" width="100%" height="100%" alt="">
+              <img class="mt-2" src="shift_secure_3.png" width="40%" height="20%" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p class="mb-0">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->Copyright © 2024 All
+            rights reserved
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+    </svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        /* background-color: #f2f2f2; */
+        background-color: #f2f2f2;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+
+    .container {
+
+        max-width: 400px;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="phoneNumber"],
+    button {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    h2 {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your username">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your Password">
+
+
+            <label for="phoneNumber">Phone Number</label>
+            <input type="phoneNumber" id="phoneNumber" name="phoneNumber" required
+                placeholder="Enter your phone Number">
+
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+
+    <script>
+        const registrationForm = document.getElementById('registrationForm');
+        console.log("registrationForm :", registrationForm);
+
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(registrationForm);
+            console.log("formData :", formData);
+            const userData = Object.fromEntries(formData.entries());
+            console.log("userData :", userData);
+
+            try {
+                const response = await axios.post('http://localhost:3000/api/register', userData, {
+                    withCredentials: true,
+                });
+                console.log('Registration successful:', response.data);
+
+
+                // After successful login response
+                const responseData = JSON.stringify(response?.data); // Convert response data to JSON string
+                console.log('responseData:', responseData);
+                localStorage.setItem('userData', responseData); // Save response data to local storage
+
+
+
+                iziToast.success({
+                    title: 'Success',
+                    message: 'Registration successful!',
+                    position: 'topRight'
+                });
+                // Redirect to login page after a delay
+                setTimeout(() => {
+                    window.location.href = './login.html'; // Replace 'login.html' with your actual login page URL
+                }, 1000); // Redirect after 2 seconds
+                // alert('Registration successful!');
+                // Redirect or show success message as needed
+            } catch (error) {
+                console.error('Registration error:', error.response.data);
+                iziToast.error({
+                    title: 'Error',
+                    message: 'Registration failed. Please try again.',
+                    position: 'topRight'
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
